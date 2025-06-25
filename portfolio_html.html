@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swathi Raket Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        section {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: all 0.6s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 3px;
+            width: 0;
+            background-color: #2563eb;
+            transition: width 0.4s ease;
+        }
+
+        .visible .section-title::after {
+            width: 100%;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll("section").forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e2e8f0;">
+        <div class="container-fluid">
+            <a class="navbar-brand text-dark" href="#">Swathi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-dark" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="#certificates">Certificates</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <div class="container flex flex-col md:flex-row items-center justify-center gap-6">
+        <!-- Profile Image -->
+        <img src="images/profile.jpeg" alt="Swathi Raket" class="rounded-full shadow-md" style="width: 160px; height: 160px; object-fit: cover;" />
+
+        <!-- Name and Details -->
+        <div class="text-center md:text-left">
+            <h1 class="text-4xl font-bold mb-2">Swathi Raket</h1>
+            <p class="text-lg mb-2">Full Stack Developer</p>
+            <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-1 sm:space-y-0 sm:space-x-4 text-sm">
+                <span><i class="fas fa-map-marker-alt"></i> Mahabubnagar, Telangana</span>
+                <span><i class="fas fa-phone"></i> 7780229970</span>
+                <span><i class="fas fa-envelope"></i> swathiraket@gmail.com</span>
+            </div>
+            <div class="mt-2">
+                <a href="https://www.linkedin.com/in/swathi-raket-561536246" target="_blank" class="animated-link text-blue-600"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- About Section -->
+    <section id="about" class="container mx-auto p-6">
+        <h2 class="section-title">About Me</h2>
+        <p>I am a passionate full-stack developer in training with strong foundations in both frontend and backend technologies. Currently pursuing my B.Tech in Electronics & Communication Engineering at GNITS, Hyderabad, I enjoy building responsive and engaging web applications. I believe in continuous learning and problem-solving, and I strive to grow as a software developer by working on meaningful projects.</p>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="container mx-auto p-6">
+        <h2 class="section-title">Education</h2>
+        <ul class="list-disc pl-6">
+            <li><strong>GNITS, Hyderabad:</strong> B.Tech in ECE (2021–2025) – 8.68 CGPA</li>
+            <li><strong>Narayana Junior College:</strong> Intermediate MPC – 96.8%</li>
+            <li><strong>Sri Chaitanya Techno School:</strong> SSC – 9.8 CGPA</li>
+        </ul>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container mx-auto p-6">
+        <h2 class="section-title">Skills</h2>
+        <ul class="list-disc pl-6">
+            <li><strong>Frontend:</strong> HTML, CSS, Bootstrap, JavaScript, React.js</li>
+            <li><strong>Backend:</strong> Python</li>
+            <li><strong>Databases:</strong> SQLite</li>
+            <li><strong>Other:</strong> C, C++, Flexbox</li>
+        </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container mx-auto p-6">
+        <h2 class="section-title">Projects</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="project-card">
+                <h3 class="text-xl font-bold">Bookmark Maker</h3>
+                <p>A tool to save and access favorite websites using HTML, CSS, JS, and Bootstrap.</p>
+                <a href="http://swathibook.ccbp.tech/" class="animated-link" target="_blank">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3 class="text-xl font-bold">E-Commerce Website</h3>
+                <p>Built a product-based e-commerce site with bootstrap elements and responsive design.</p>
+                <a href="http://flyecom.ccbp.tech/" class="animated-link" target="_blank">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3 class="text-xl font-bold">IPL Dashboard</h3>
+                <p>React-based app displaying IPL teams and matches using REST API and dynamic routing.</p>
+                <a href="http://iplreact.ccbp.tech/" class="animated-link" target="_blank">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3 class="text-xl font-bold">Smart Blind Stick</h3>
+                <p>An assistive device prototype for visually impaired people using MATLAB.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="container mx-auto p-6">
+        <h2 class="section-title">Certificates</h2>
+        <ul class="list-disc pl-6">
+            <li><strong>Cisco BOOST 4.0:</strong> Women in Cybersecurity – Networking, Endpoint Security, Python(Aug 2024)</li>
+            <li><strong>Yoga Workshop:</strong> Health and well-being for women (Dec 2023)</li>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center bg-gray-100 py-4 mt-8">
+        <p> By Swathi Raket </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
