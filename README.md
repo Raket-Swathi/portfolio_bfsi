@@ -50,4 +50,4 @@ portfolio/
 **Clone the repository**
 
 ```bash
-git clone https://github.com/Raket-Swathi/portfolio.git
+git clone https://github.com/Raket-Swathi/portfolio_bfsi.git
